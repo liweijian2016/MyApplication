@@ -1,5 +1,6 @@
 package org.personal.mint.myapplication
 
+import org.jetbrains.annotations.Nullable
 import org.junit.Test
 
 /**
@@ -21,15 +22,27 @@ class KotlinUnitTest {
             }
     }
 
+
     @Test
     fun test() {
 
-        val person = Person()
-        person.name = "abc"
-        person.sex = "woman"
+//        val person = Person()
+//        person.name = "abc"
+//        person.sex = "woman"
 
-        println(person.name)
-        println(person.sex)
+//        println(person.name)
+//        println(person.sex)
+
+        val test = NullTest()
+        val myObject: Any = test.getObject()!!
     }
 
+}
+
+class NullTest {
+
+    @Nullable
+    fun getObject():Any?{
+        return ""
+    }
 }

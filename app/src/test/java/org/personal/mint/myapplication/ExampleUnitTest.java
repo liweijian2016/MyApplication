@@ -1,5 +1,6 @@
 package org.personal.mint.myapplication;
 
+import org.jetbrains.annotations.Nullable;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
@@ -18,5 +19,13 @@ public class ExampleUnitTest {
     @Test
     public void test1() {
 
+    }
+
+    public class NullTest {
+
+        @Nullable
+        public Object getObject(){
+            return "";
+        }
     }
 }

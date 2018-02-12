@@ -9,7 +9,7 @@ import android.support.v7.widget.LinearLayoutManager
 import android.util.Log
 import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_main.*
-import org.jetbrains.anko.async
+import org.jetbrains.anko.doAsync
 import org.jetbrains.anko.uiThread
 import org.personal.mint.myapplication.R
 import org.personal.mint.myapplication.domain.commands.RequestForecastCommand
@@ -58,7 +58,7 @@ class MainActivity : AppCompatActivity() {
             Request(url).run()
             uiThread { longToast("Request performed") }
         }*/
-        async() {
+        doAsync {
             val result = RequestForecastCommand("94043").execute()
             Log.i("dailyForecast", "dailyForecast---->" + result.dailyForecast.size);
             println("dailyForecast---->" + result.dailyForecast.size)

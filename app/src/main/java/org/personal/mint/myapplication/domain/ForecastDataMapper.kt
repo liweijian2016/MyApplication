@@ -13,14 +13,16 @@ import org.personal.mint.myapplication.domain.model.Forecast as ModelForecast
  */
 class ForecastDataMapper {
     fun convertFromDataModel(forecast: ForecastResult): ForecastList =
-            ForecastList(forecast.city.name, forecast.city.country,
+            ForecastList(1, forecast.city.name,
+                    forecast.city.country,
                     convertForecastListToDomain(forecast.list))
 
     private fun convertForecastListToDomain(list: List<Forecast>): List<ModelForecast> =
             list.map { convertForecastItemToDomain(it) }
 
     private fun convertForecastItemToDomain(forecast: Forecast): ModelForecast =
-            ModelForecast(convertDate(forecast.dt),
+            ModelForecast(-1,
+                    convertDate(forecast.dt),
                     forecast.weather[0].description,
                     forecast.temp.max.toInt(),
                     forecast.temp.min.toInt(),
@@ -31,6 +33,5 @@ class ForecastDataMapper {
         return df.format(date * 1000)
     }
 
-    private fun generateIconUrl(iconCode: String): String
-            = "http://openweathermap.org/img/w/$iconCode.png"
+    private fun generateIconUrl(iconCode: String): String = "http://openweathermap.org/img/w/$iconCode.png"
 }
