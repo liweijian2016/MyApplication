@@ -1,10 +1,10 @@
 package org.personal.mint.myapplication.domain.datasource
 
-import com.antonioleiva.weatherapp.extensions.firstResult // 自定义包路径
 import org.personal.mint.myapplication.data.db.ForecastDb
 import org.personal.mint.myapplication.data.server.ForecastServer
 import org.personal.mint.myapplication.domain.model.Forecast
 import org.personal.mint.myapplication.domain.model.ForecastList
+import org.personal.mint.myapplication.extensions.firstResult
 
 class ForecastProvider(private val sources: List<ForecastDataSource> = ForecastProvider.SOURCES) {
 
