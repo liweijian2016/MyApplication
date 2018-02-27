@@ -33,8 +33,23 @@ class KotlinUnitTest {
 //        println(person.name)
 //        println(person.sex)
 
-        val test = NullTest()
-        val myObject: Any = test.getObject()!!
+//        val test = NullTest()
+//        val myObject: Any = test.getObject()!!
+
+        for (i in 0..10 step 3) println(i)
+        funWhen(3)
+        for (i in 10 downTo 0 step 3) println(i)
+
+//        for (i in 0 until 4) println(i)
+
+    }
+
+    private fun funWhen(a: Int) {
+        when (a) {
+            1 -> println("a")
+            2 -> println("b")
+            else -> println("else")
+        }
     }
 
 }

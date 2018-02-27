@@ -1,4 +1,4 @@
-package com.antonioleiva.weatherapp.extensions
+package org.personal.mint.myapplication.extensions
 
 import android.database.sqlite.SQLiteDatabase
 import org.jetbrains.anko.db.MapRowParser

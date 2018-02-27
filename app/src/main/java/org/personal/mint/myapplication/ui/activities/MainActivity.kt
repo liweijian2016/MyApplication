@@ -59,13 +59,15 @@ class MainActivity : AppCompatActivity() {
             uiThread { longToast("Request performed") }
         }*/
         doAsync {
-            val result = RequestForecastCommand("94043").execute()
+            val result = RequestForecastCommand(94043).execute()
             Log.i("dailyForecast", "dailyForecast---->" + result.dailyForecast.size);
             println("dailyForecast---->" + result.dailyForecast.size)
             uiThread {
                 toast("Request performed")
 //                forecastList.adapter = ForecastListAdapter(result, { forecast -> toast(forecast.date) })
-                forecastList.adapter = ForecastListAdapter(result) { toast(it.date) }
+                forecastList.adapter = ForecastListAdapter(result) {
+                    toast(it.date)
+                }
             }
             forecastList.setOnClickListener({ view -> toast("Click") })
         }

@@ -7,10 +7,12 @@ import org.personal.mint.myapplication.data.server.ForecastResult
 import java.net.URL
 
 /**
+ * 初级的类,后期简化代码后,可删除.
+ *
  * @author lwj
  * @date 2018/2/6
  */
- class ForecastRequest(val zipCode: String) {
+class ForecastRequest(val zipCode: String) {
     companion object {
         private val APP_ID = "15646a06818f61f7b8d7823ca833e1ce"
         private val URL = "http://api.openweathermap.org/data/2.5/" +

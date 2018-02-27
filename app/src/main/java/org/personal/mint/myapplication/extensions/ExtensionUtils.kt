@@ -1,4 +1,4 @@
-package com.antonioleiva.weatherapp.extensions
+package org.personal.mint.myapplication.extensions
 
 import java.text.DateFormat
 import java.util.*

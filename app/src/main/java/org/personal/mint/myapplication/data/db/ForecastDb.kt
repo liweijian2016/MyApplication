@@ -1,7 +1,7 @@
 package org.personal.mint.myapplication.data.db
 
 import android.database.sqlite.SQLiteDatabase
-import com.antonioleiva.weatherapp.extensions.byId
+import org.personal.mint.myapplication.extensions.byId
 import org.jetbrains.anko.db.MapRowParser
 import org.jetbrains.anko.db.SelectQueryBuilder
 import org.jetbrains.anko.db.insert
@@ -45,10 +45,15 @@ class ForecastDb(val forecastDbHelper: ForecastDbHelper = ForecastDbHelper.insta
             }
         }
     }
-
+    /**
+     * 以下函数隶属于 CollectionsExtensions
+     */
     fun <K, V : Any> MutableMap<K, V?>.toVarargArray():
             Array<out Pair<K, V>> = map({ Pair(it.key, it.value!!) }).toTypedArray()
 
+    /**
+     * 以下三个函数隶属于 DatabaseExtensions
+     */
     fun SQLiteDatabase.clear(tableName: String) {
         execSQL("delete from $tableName")
     }

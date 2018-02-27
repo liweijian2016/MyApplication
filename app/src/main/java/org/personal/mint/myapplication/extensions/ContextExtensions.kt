@@ -1,4 +1,4 @@
-package com.antonioleiva.weatherapp.extensions
+package org.personal.mint.myapplication.extensions
 
 import android.content.Context
 import android.support.v4.content.ContextCompat
