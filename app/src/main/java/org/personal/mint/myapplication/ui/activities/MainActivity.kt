@@ -30,13 +30,20 @@ class MainActivity : AppCompatActivity(), ToolbarManager {
 //        val forecastList: RecyclerView = find(R.id.forecastList)
         forecastList.layoutManager = LinearLayoutManager(this)
         val url: String = "http://samples.openweathermap.org/data/2.5/weather?q=London,uk&appid=b6907d289e10d714a6e88b30761fae22"
-//        val url: String = "https://api.dltoutiao.com/public/data.json"
+    }
+
+    override fun onResume() {
+        super.onResume()
+        loadForecast()
+    }
+
+    private fun loadForecast() {
         doAsync {
             val result = RequestForecastCommand(94043).execute()
             Log.i("dailyForecast", "dailyForecast---->" + result.dailyForecast.size);
             uiThread {
                 toast("Request performed")
-//                forecastList.adapter = ForecastListAdapter(result, { forecast -> toast(forecast.date) })
+                //                forecastList.adapter = ForecastListAdapter(result, { forecast -> toast(forecast.date) })
                 forecastList.adapter = ForecastListAdapter(result) {
                     startActivity<DetailActivity>(
                             DetailActivity.ID to it.id,

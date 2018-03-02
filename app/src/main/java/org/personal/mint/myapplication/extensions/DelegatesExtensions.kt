@@ -25,19 +25,6 @@ class NotNullSingleValueVar<T>() : ReadWriteProperty<Any?, T> {
         else throw IllegalStateException("${property.name} already initialized")
     }
 }
-/*
-class NotNullSingleValueVar<T> {
-
-    private var value: T? = null
-
-    operator fun getValue(thisRef: Any?, property: KProperty<*>): T =
-            value ?: throw IllegalStateException("${property.name} not initialized")
-
-    operator fun setValue(thisRef: Any?, property: KProperty<*>, value: T) {
-        this.value = if (this.value == null) value
-        else throw IllegalStateException("${property.name} already initialized")
-    }
-}*/
 
 class Preference<T>(private val context: Context, private val name: String,
                     private val default: T) {

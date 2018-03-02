@@ -20,7 +20,9 @@
             </intent-filter>
         </activity>
         <activity android:name=".ui.activities.DetailActivity" />
-        <activity android:name=".ui.activities.SettingsActivity" />
+        <activity
+            android:name=".ui.activities.SettingsActivity"
+            android:label="@string/settings" />
     </application>
 
 </manifest>

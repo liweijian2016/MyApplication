@@ -31,11 +31,15 @@ class SettingsActivity : AppCompatActivity() {
         zipCode = cityCode.text.toString().toLong()
     }
 
-    override fun onOptionsItemSelected(item: MenuItem) = when (item.itemId) {
-        android.R.id.home -> {
-            onBackPressed()
-            true
-        }
-        else -> false
-    }
+    /**
+     * 当用户离开这个界面的时我们需要保存用户preference（偏好），所以我们需要像处理Back一样处理Up动作，重定向动作到onBackPressed。
+     */
+    override fun onOptionsItemSelected(item: MenuItem) =
+            when (item.itemId) {
+                android.R.id.home -> {
+                    onBackPressed()
+                    true
+                }
+                else -> false
+            }
 }
