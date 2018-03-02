@@ -37,6 +37,10 @@ class ForecastProvider(private val sources: List<ForecastDataSource> = ForecastP
      */
     private fun todayTimeSpan() = System.currentTimeMillis() / DAY_IN_MILLIS * DAY_IN_MILLIS
 
+    /**
+     * 这个函数使用一个非null类型作为范型。它会接收一个函数，并返回一个可null的对象。
+     * 其中这个接收的函数 接收一个 ForecastDataSource，并返回一个可null范型的对象。
+     */
     private fun <T : Any> requestToSources(f: (ForecastDataSource) -> T?): T = sources.firstResult { f(it) }
 
 }

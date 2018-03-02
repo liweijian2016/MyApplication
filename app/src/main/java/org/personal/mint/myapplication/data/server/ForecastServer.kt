@@ -20,5 +20,10 @@ class ForecastServer(private val dataMapper: ServerDataMapper = ServerDataMapper
         return forecastDb.requestForecastByZipCode(zipCode, date)
     }
 
+    /**
+     * 另一方面，ForecastServer将不会再使用，因为信息总是会被缓存在数据库中。
+     * 我们可以在一些奇怪的场景下实现一些代码保护，但是我们在这个例子中没有做任何处理，
+     * 所以如果发生它也会只是抛出一个异常
+     */
     override fun requestDayForecast(id: Long) = throw UnsupportedOperationException()
 }

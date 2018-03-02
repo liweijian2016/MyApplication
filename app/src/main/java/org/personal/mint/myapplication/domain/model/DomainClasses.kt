@@ -11,5 +11,5 @@ data class ForecastList(val id: Long,
     val size: Int get() = dailyForecast.size
 }
 
-data class Forecast(val id: Long, val date: String, val description: String,
+data class Forecast(val id: Long, val date: Long, val description: String,
                     val high: Int, val low: Int, val iconUrl: String)

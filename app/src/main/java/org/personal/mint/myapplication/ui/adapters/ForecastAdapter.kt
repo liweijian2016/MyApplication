@@ -53,13 +53,8 @@ class ForecastListAdapter(val weekForecast: ForecastList, val itemClick: (Foreca
 
         fun bindForecast(forecast: Forecast) {
             with(forecast) {
-//                Picasso.with(itemView.ctx).load(iconUrl).into(iconView)
-//                dateView.text = date
-//                descriptionView.text = description
-//                maxTemperatureView.text = "${high.toString()}"
-//                minTemperatureView.text = "${low.toString()}"
                 Picasso.with(itemView.ctx).load(iconUrl).into(itemView.icon)
-                itemView.date.text = date
+                itemView.date.text = date.toString()
                 itemView.description.text = description
                 itemView.maxTemperature.text = "${high.toString()}"
                 itemView.minTemperature.text = "${low.toString()}"

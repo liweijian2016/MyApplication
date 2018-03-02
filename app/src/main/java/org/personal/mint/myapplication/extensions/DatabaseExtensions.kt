@@ -18,4 +18,7 @@ fun SQLiteDatabase.clear(tableName: String) {
     execSQL("delete from $tableName")
 }
 
+/**
+ * 这个函数相当普通，但是如你所见，你可以根据你数据库结构的需要来创建需要的扩展函数，它可以大量地简化你代码的可读性。
+ */
 fun SelectQueryBuilder.byId(id: Long) = whereSimple("_id = ?", id.toString())

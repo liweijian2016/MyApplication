@@ -1,13 +1,13 @@
 package org.personal.mint.myapplication.data.db
 
 import android.database.sqlite.SQLiteDatabase
-import org.personal.mint.myapplication.extensions.byId
 import org.jetbrains.anko.db.MapRowParser
 import org.jetbrains.anko.db.SelectQueryBuilder
 import org.jetbrains.anko.db.insert
 import org.jetbrains.anko.db.select
 import org.personal.mint.myapplication.domain.datasource.ForecastDataSource
 import org.personal.mint.myapplication.domain.model.ForecastList
+import org.personal.mint.myapplication.extensions.byId
 
 /**
  * @author lwj
@@ -15,10 +15,13 @@ import org.personal.mint.myapplication.domain.model.ForecastList
  */
 class ForecastDb(val forecastDbHelper: ForecastDbHelper = ForecastDbHelper.instance,
                  val dataMapper: DbDataMapper = DbDataMapper()) : ForecastDataSource {
+
     override fun requestDayForecast(id: Long) = forecastDbHelper.use {
         val forecast = select(DayForecastTable.NAME)
                 .byId(id)
-                .parseOpt { DayForecast(HashMap(it)) }
+                .parseOpt {
+                    DayForecast(HashMap(it))
+                }
         forecast?.let { dataMapper.convertDayToDomain(it) }
     }
 
@@ -45,6 +48,7 @@ class ForecastDb(val forecastDbHelper: ForecastDbHelper = ForecastDbHelper.insta
             }
         }
     }
+
     /**
      * 以下函数隶属于 CollectionsExtensions
      */

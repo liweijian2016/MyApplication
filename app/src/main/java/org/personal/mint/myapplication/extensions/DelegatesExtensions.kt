@@ -1,12 +1,15 @@
 package org.personal.mint.myapplication.extensions
 
+import android.annotation.SuppressLint
+import android.content.Context
+import android.content.SharedPreferences
 import kotlin.properties.ReadWriteProperty
 import kotlin.reflect.KProperty
 
 object DelegatesExt {
     fun <T> notNullSingleValue() = NotNullSingleValueVar<T>()
-//    fun <T> preference(context: Context, name: String,
-//            default: T) = Preference(context, name, default)
+    fun <T> preference(context: Context, name: String,
+                       default: T) = Preference(context, name, default)
 }
 
 class NotNullSingleValueVar<T>() : ReadWriteProperty<Any?, T> {
@@ -35,10 +38,9 @@ class NotNullSingleValueVar<T> {
         else throw IllegalStateException("${property.name} already initialized")
     }
 }*/
-/*
 
 class Preference<T>(private val context: Context, private val name: String,
-        private val default: T) {
+                    private val default: T) {
 
     private val prefs: SharedPreferences by lazy {
         context.getSharedPreferences("default", Context.MODE_PRIVATE)
@@ -58,7 +60,7 @@ class Preference<T>(private val context: Context, private val name: String,
             is Int -> getInt(name, default)
             is Boolean -> getBoolean(name, default)
             is Float -> getFloat(name, default)
-            else -> throw IllegalArgumentException("This type can be saved into Preferences")
+            else -> throw IllegalArgumentException("This type can't be saved into Preferences")
         }
 
         res as T
@@ -75,4 +77,4 @@ class Preference<T>(private val context: Context, private val name: String,
             else -> throw IllegalArgumentException("This type can't be saved into Preferences")
         }.apply()
     }
-}*/
+}
