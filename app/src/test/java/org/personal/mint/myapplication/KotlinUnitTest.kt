@@ -1,7 +1,11 @@
 package org.personal.mint.myapplication
 
 import org.jetbrains.annotations.Nullable
+import org.junit.Assert.assertEquals
+import org.junit.Assert.assertTrue
 import org.junit.Test
+import org.personal.mint.myapplication.extensions.toDateString
+import java.text.DateFormat
 
 /**
  * @author lwj
@@ -22,8 +26,24 @@ class KotlinUnitTest {
             }
     }
 
+    @Test
+    fun unitTestingWorks() {
+        assertTrue(true)
+    }
 
     @Test
+    fun testLongToDateString() {
+        assertEquals("2015-10-20", 1445275635000L.toDateString())
+//        assertEquals("Oct 19, 2015", 1445275635000L.toDateString())
+    }
+
+    @Test
+    fun testDateStringFullFormat() {
+        assertEquals("2015年10月20日 星期二",
+                1445275635000L.toDateString(DateFormat.FULL))
+    }
+
+    //    @Test
     fun test() {
 
 //        val person = Person()
@@ -57,7 +77,7 @@ class KotlinUnitTest {
 class NullTest {
 
     @Nullable
-    fun getObject():Any?{
+    fun getObject(): Any? {
         return ""
     }
 }
