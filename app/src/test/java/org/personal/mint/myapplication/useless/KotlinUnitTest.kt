@@ -1,4 +1,4 @@
-package org.personal.mint.myapplication
+package org.personal.mint.myapplication.useless
 
 import org.jetbrains.annotations.Nullable
 import org.junit.Assert.assertEquals
