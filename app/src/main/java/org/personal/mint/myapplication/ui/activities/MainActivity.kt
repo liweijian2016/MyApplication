@@ -1,6 +1,5 @@
 package org.personal.mint.myapplication.ui.activities
 
-import android.graphics.Color
 import android.os.Build
 import android.os.Bundle
 import android.support.annotation.RequiresApi
@@ -25,11 +24,16 @@ class MainActivity : AppCompatActivity(), ToolbarManager {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        supportsLollipop { window.statusBarColor = Color.BLACK }
+        initToolbar()
+//        supportsLollipop { window.statusBarColor = Color.BLACK }
 //        val forecastList = findViewById(R.id.forecast_list) as RecyclerView
 //        val forecastList: RecyclerView = find(R.id.forecastList)
+//        val url: String = "http://samples.openweathermap.org/data/2.5/weather?q=London,uk&appid=b6907d289e10d714a6e88b30761fae22"
         forecastList.layoutManager = LinearLayoutManager(this)
-        val url: String = "http://samples.openweathermap.org/data/2.5/weather?q=London,uk&appid=b6907d289e10d714a6e88b30761fae22"
+        /**
+         * 跟随滚动
+         */
+        attachToScroll(forecastList)
     }
 
     override fun onResume() {

@@ -10,6 +10,7 @@ import org.personal.mint.myapplication.R
 import org.personal.mint.myapplication.domain.model.Forecast
 import org.personal.mint.myapplication.domain.model.ForecastList
 import org.personal.mint.myapplication.extensions.ctx
+import org.personal.mint.myapplication.extensions.toDateString
 
 /**
  * @author lwj
@@ -20,9 +21,9 @@ class ForecastListAdapter(val weekForecast: ForecastList, val itemClick: (Foreca
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int):
             ViewHolder? {
-        val view = LayoutInflater.from(parent.ctx)
+        val itemView = LayoutInflater.from(parent.ctx)
                 .inflate(R.layout.item_forecast, parent, false)
-        return ViewHolder(view, itemClick)
+        return ViewHolder(itemView, itemClick)
     }
 
     override fun onBindViewHolder(holder: ViewHolder,
@@ -54,7 +55,7 @@ class ForecastListAdapter(val weekForecast: ForecastList, val itemClick: (Foreca
         fun bindForecast(forecast: Forecast) {
             with(forecast) {
                 Picasso.with(itemView.ctx).load(iconUrl).into(itemView.icon)
-                itemView.date.text = date.toString()
+                itemView.date.text = date.toDateString()
                 itemView.description.text = description
                 itemView.maxTemperature.text = "${high.toString()}"
                 itemView.minTemperature.text = "${low.toString()}"
