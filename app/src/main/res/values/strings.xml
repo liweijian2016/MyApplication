@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">My Application</string>
+    <string name="app_name">KotlinWeather</string>
     <string name="hello">Hello</string>
     <string name="settings">Settings</string>
     <string name="city_zipcode">City ZipCode</string>
